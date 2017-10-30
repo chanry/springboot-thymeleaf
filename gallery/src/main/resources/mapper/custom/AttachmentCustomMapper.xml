@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trs.gallery.mapper.custom.AttachmentDao" >	
+  <resultMap id="BaseResultMap" type="com.trs.gallery.entity.custom.AttachmentInfo">
+    <result column="appDocId" jdbcType="INTEGER" property="docId" />
+    <result column="appFile" jdbcType="VARCHAR" property="appFile" />
+    <result column="srcFile" jdbcType="VARCHAR" property="srcFile" />
+    <result column="FILEEXT" jdbcType="VARCHAR" property="fileExt" />
+  </resultMap>
+	
+  <select id="findDocDetailUrl" resultType="java.lang.String">
+	 SELECT docPubUrl FROM wcmdocument WHERE docId = #{docId}
+  </select>	
+	
+  <select id="findAttachmentList" resultMap="BaseResultMap">
+	 SELECT appDocId, appFile,srcFile, FILEEXT FROM wcmappendix WHERE appDocId = #{docId} and FILEEXT in 
+	 <foreach collection="fileExts" item="item" index="index" open="(" separator="," close=")">
+	 	#{item}
+	 </foreach>
+  </select>
+  
+  <select id="findAttachmentListByDocIds" resultMap="BaseResultMap">
+  	SELECT a.* FROM wcmappendix a WHERE
+	APPSERN = (
+		SELECT
+			min(APPSERN)
+		FROM
+			wcmappendix
+		WHERE
+			appDocId = a.appDocId
+	)
+	AND FILEEXT in
+	 <foreach collection="fileExts" item="item" index="index" open="(" separator="," close=")">
+	 	#{item}
+	 </foreach>
+	  AND appDocId in 
+	 <foreach collection="docIds" item="item" index="index" open="(" separator="," close=")">
+	 	#{item}
+	 </foreach>
+  </select>
+  
+</mapper>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trs.gallery.mapper.custom.DocumentDao" >	
+  <resultMap id="BaseResultMap" type="com.trs.gallery.entity.custom.DocumentInfo">
+    <result column="DOCID" jdbcType="INTEGER" property="docId" />
+    <result column="DOCCHANNEL" jdbcType="INTEGER" property="channelId" />
+    <result column="DOCTITLE" jdbcType="VARCHAR" property="title" />
+    <result column="DOCCONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="DOCPUBTIME" jdbcType="DATE" property="pubTime" />
+    <result column="DOCRELTIME" jdbcType="DATE" property="docRelTime" />
+    <result column="DOCPUBURL" jdbcType="VARCHAR" property="pubUrl" />
+    <collection property="customFields" ofType="com.trs.gallery.entity.custom.CustomField"
+      		column="{docchannel=docchannel, docId=DOCID}" select="selectCustomFields">
+    </collection>
+  </resultMap>
+  
+  <resultMap id="DateResultMap" type="com.trs.gallery.entity.custom.DocumentInfo">
+  	<result column="DOCID" jdbcType="INTEGER" property="docId" />
+    <result column="DOCCHANNEL" jdbcType="INTEGER" property="channelId" />
+    <result column="DOCTITLE" jdbcType="VARCHAR" property="title" />
+    <result column="DOCCONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="DOCPUBTIME" jdbcType="DATE" property="pubTime" />
+    <result column="DOCRELTIME" jdbcType="DATE" property="docRelTime" />
+    <result column="DOCPUBURL" jdbcType="VARCHAR" property="pubUrl" />
+  </resultMap>
+  
+  <resultMap id="CustomFieldResultMap" type="com.trs.gallery.entity.custom.CustomField" >
+  	  <result property="id" column="DOCID"/>
+      <result property="name" column="FIELDNAME"/>
+      <result property="desc" column="LOGICFIELDDESC"/>
+  </resultMap>
+  
+  <resultMap id="chnlInfoMap" type="com.trs.gallery.entity.custom.ChannelInfo">
+  	 	<id column="CHANNELID" property="channelId"/>
+        <result column="CHNLNNAME" property="chnlnName"/>
+        <collection property="children" ofType="com.trs.gallery.entity.custom.ChannelInfo" column="channelId" select="findAllChildChnlIdsByChnlId"/>
+  </resultMap>
+	
+	
+	<select id="findDocumentsBychnldocIds" resultMap="BaseResultMap">
+		SELECT t2.DOCID, t2.DOCCHANNEL, t2.DOCTITLE, t2.DOCCONTENT, t2.DOCPUBTIME, t2.DOCRELTIME, t2.DOCPUBURL
+		FROM
+			wcmchnldoc t1 
+		LEFT JOIN wcmdocument t2 
+		ON t1.DOCID = t2.DOCID
+		WHERE
+			t1.RECID IN 
+		<foreach collection="chnldocIds" item="recId" index="index" open="(" separator="," close=")">  
+        	#{recId} 
+    	</foreach> 
+    	AND t2.DOCSTATUS = 10
+	</select>
+  	
+  	<select id="findDocumentsBychnlIds" resultMap="BaseResultMap">
+  		SELECT t1.DOCID, t1.DOCCHANNEL, t1.DOCTITLE, t1.DOCCONTENT, t1.DOCPUBTIME, t1.DOCRELTIME, t1.DOCPUBURL
+		FROM
+			wcmdocument t1 LEFT JOIN wcmchannel t2 ON t1.DOCCHANNEL = t2.CHANNELID
+		WHERE
+			t2.CHANNELID IN 
+		<foreach collection="channelIds" item="channelId" index="index" open="(" separator="," close=")">  
+        	#{channelId} 
+    	</foreach> 
+    	AND t1.DOCSTATUS = 10
+		ORDER BY t1.DOCRELTIME DESC
+    	LIMIT 0, 4
+  	</select>
+  	
+  	<select id="findChnlInfo" resultType="java.util.HashMap">
+  		SELECT
+			CHANNELID, CHNLNAME
+		FROM
+			wcmchannel
+		WHERE
+			CHANNELID IN 
+		<foreach collection="channelIds" item="channelId" index="index" open="(" separator="," close=")">  
+       		#{channelId} 
+    	</foreach>
+  	</select>
+  	
+  	<select id="selectCustomFields" parameterType="java.util.Map" resultMap="CustomFieldResultMap">
+	    SELECT
+	    	${docId} as DOCID,
+			t1.FIELDNAME,
+			t2.LOGICFIELDDESC
+		FROM
+			wcmextfield t1
+		LEFT JOIN wcmcontentextfield t2 ON t1.EXTFIELDID = t2.EXTFIELDID
+		WHERE
+			t2.OBJID = #{docchannel}
+  </select>
+  
+  <select id="selectCustomFieldValue" resultType="java.util.Map">
+    <if test="field != ''">
+    	SELECT ${field}, docId FROM wcmdocument WHERE docId IN
+    	<foreach collection="docIds" item="docId" index="index" open="(" separator="," close=")">  
+       		#{docId} 
+    	</foreach>
+    </if>
+  </select>
+  
+  <select id="findNewsByDate" resultMap="DateResultMap">
+  	SELECT t1.DOCID, t1.DOCCHANNEL, t1.DOCTITLE, t1.DOCCONTENT, t1.DOCPUBTIME, t1.DOCRELTIME, t1.DOCPUBURL
+	FROM
+		wcmdocument t1 LEFT JOIN wcmchannel t2 ON t1.DOCCHANNEL = t2.CHANNELID
+	WHERE
+		t2.CHANNELID IN
+		<foreach collection="channelIds" item="channelId" index="index" open="(" separator="," close=")">  
+       		#{channelId} 
+    	</foreach>
+    	AND t1.DOCSTATUS = 10
+		AND TO_DAYS(t1.DOCPUBTIME) = TO_DAYS(#{date})
+	ORDER BY t1.DOCRELTIME DESC
+   	LIMIT 0, 6
+  </select>
+  
+  <select id="findExhibitionByDate" resultMap="BaseResultMap">
+  
+  	SELECT t1.DOCID, t1.DOCCHANNEL, t1.DOCTITLE, t1.DOCCONTENT, t1.DOCPUBTIME, t1.DOCRELTIME, t1.DOCPUBURL
+	FROM
+		wcmdocument t1 LEFT JOIN wcmchannel t2 ON t1.DOCCHANNEL = t2.CHANNELID
+	WHERE
+		t2.CHANNELID IN
+		<foreach collection="channelIds" item="channelId" index="index" open="(" separator="," close=")">  
+       		#{channelId} 
+    	</foreach>
+    	AND t1.DOCSTATUS = 10
+    	<![CDATA[
+		AND t1.KAISSJ <= #{date} AND t1.JIESSJ >= #{date}]]> 
+	ORDER BY t1.DOCRELTIME DESC
+   	LIMIT 0, 6
+   	
+  </select>
+  
+  <select id="findActivityByDate" resultMap="BaseResultMap">
+  	SELECT t1.DOCID, t1.DOCCHANNEL, t1.DOCTITLE, t1.DOCCONTENT, t1.DOCPUBTIME, t1.DOCRELTIME, t1.DOCPUBURL
+	FROM
+		wcmdocument t1 LEFT JOIN wcmchannel t2 ON t1.DOCCHANNEL = t2.CHANNELID
+	WHERE
+		t2.CHANNELID IN
+		<foreach collection="channelIds" item="channelId" index="index" open="(" separator="," close=")">  
+       		#{channelId} 
+    	</foreach>
+    	AND t1.DOCSTATUS = 10
+		<![CDATA[ AND t1.KAISSJ <= #{date} AND t1.JIESSJ >= #{date}
+	ORDER BY t1.DOCRELTIME DESC
+   	LIMIT 0, 6
+   	]]> 
+  </select>
+  
+  <!-- 根据栏目ID获取所有子栏目ID -->
+  <select id="findAllChildChnlIdsByChnlId" resultType="com.trs.gallery.entity.custom.ChannelInfo">
+  	SELECT PARENTID, CHANNELID FROM wcmchannel WHERE PARENTID = #{channelId}
+  </select>
+  
+  <!-- 根据栏目ID查询栏目信息 -->
+  <select id="findChnlInfos" resultMap="chnlInfoMap">
+    SELECT CHANNELID, CHNLNAME,PARENTID FROM wcmchannel WHERE PARENTID = #{channelId}
+   </select>
+   
+   <!-- 热门数据 -->
+   <select id="findHotDCJSDocuemnt" resultType="com.trs.gallery.entity.custom.DCJSDocumentInfo">
+    SELECT
+		t2.DOCID,
+		t2.DOCPUBURL AS pubUrl,
+		t2.DOCCHANNEL AS channelId,
+		t1.Serial_Number,
+		t1.Title,
+		t1.Author,
+		t1.Category,
+		t1.Collection_Time,
+		t1.Creation_age,
+		t1.Introduction,
+		t1.Material,
+		t1.Specifications,
+		t1.Image
+	FROM
+		wcmmetatablecollection t1
+	LEFT JOIN wcmdocument t2 ON t1.MetaDataId = t2.DOCID
+	AND t2.DOCSTATUS = 10
+	ORDER BY t2.DOCRELTIME DESC
+	LIMIT 0, 4;
+   </select>
+   <!-- 收藏数据 -->
+   <select id="findCollectDCJSDocuemnt" resultType="com.trs.gallery.entity.custom.DCJSDocumentInfo">
+   SELECT
+		t3.DOCID,
+		t3.DOCPUBURL AS pubUrl,
+		t3.DOCCHANNEL AS channelId,
+		t1.Serial_Number,
+		t1.Title,
+		t1.Author,
+		t1.Category,
+		t1.Collection_Time,
+		t1.Creation_age,
+		t1.Introduction,
+		t1.Material,
+		t1.Specifications,
+		t1.Image
+	FROM
+		wcmmetatablecollection t1
+	LEFT JOIN gallery_user_collect t2 ON t1.MetaDataId = t2.DOC_ID
+	LEFT JOIN wcmdocument t3 ON t1.MetaDataId = t3.DOCID
+	WHERE t2.USER_NAME = #{userName}
+	AND t3.DOCSTATUS = 10
+	ORDER BY t2.COLLECT_TIME DESC
+	LIMIT 0, 4;
+   </select>
+   
+   <select id="findAllCollectDCJSDocuemnt" resultType="com.trs.gallery.entity.custom.DCJSDocumentInfo">
+   	SELECT
+		t3.DOCID,
+		t3.DOCPUBURL AS pubUrl,
+		t3.DOCCHANNEL AS channelId,
+		t1.Serial_Number,
+		t1.Title,
+		t1.Author,
+		t1.Category,
+		t1.Collection_Time,
+		t1.Creation_age,
+		t1.Introduction,
+		t1.Material,
+		t1.Specifications,
+		t1.Image
+	FROM
+		wcmmetatablecollection t1
+	LEFT JOIN gallery_user_collect t2 ON t1.MetaDataId = t2.DOC_ID
+	LEFT JOIN wcmdocument t3 ON t1.MetaDataId = t3.DOCID
+	WHERE t2.USER_NAME = #{userName}
+	AND t3.DOCSTATUS = 10
+	ORDER BY t2.COLLECT_TIME DESC
+	LIMIT #{start}, #{pageSize}
+   </select>
+   
+   <!-- 最近访问 -->
+   <select id="findAccessDCJSDocuemnt" resultType="com.trs.gallery.entity.custom.DCJSDocumentInfo">
+   SELECT
+		t3.DOCID,
+		t3.DOCPUBURL AS pubUrl,
+		t3.DOCCHANNEL AS channelId,
+		t1.Serial_Number,
+		t1.Title,
+		t1.Author,
+		t1.Category,
+		t1.Collection_Time,
+		t1.Creation_age,
+		t1.Introduction,
+		t1.Material,
+		t1.Specifications,
+		t1.Image
+	FROM
+		wcmmetatablecollection t1
+	LEFT JOIN gallery_user_access t2 ON t1.MetaDataId = t2.DOC_ID
+	LEFT JOIN wcmdocument t3 ON t1.MetaDataId = t3.DOCID
+	WHERE t2.USER_NAME = #{userName}
+	AND t3.DOCSTATUS = 10
+	GROUP BY t2.DOC_ID
+	ORDER BY t2.ACCESS_TIME DESC
+	LIMIT 0, 4;
+   </select>
+   
+   <select id="findTopChannelBychannelId" resultType="Integer">
+   		SELECT PARENTID FROM wcmchannel WHERE CHANNELID = #{channelId}
+   </select>
+   
+   <select id="findChannelListByChannelIds" resultType="com.trs.gallery.entity.custom.ChannelInfo">
+   		SELECT
+			CHANNELID,
+			CHNLNAME AS chnlnName
+		FROM
+			wcmchannel
+		WHERE
+			CHANNELID IN 
+		<foreach collection="chnlIds" item="channelId" index="index" open="(" separator="," close=")">  
+       		#{channelId} 
+    	</foreach> 
+   </select>
+   
+   <select id="findChnlDataPath" resultType="HashMap">
+   		SELECT FOLDERID, DATAPATH FROM wcmfolderpublishconfig WHERE FOLDERTYPE = 101;
+   </select>
+</mapper>

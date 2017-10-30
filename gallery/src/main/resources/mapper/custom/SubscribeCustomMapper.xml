@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trs.gallery.mapper.custom.SubscribeDao" >	
+
+	<insert id="addRecords">
+		insert into gallery_user_subscribe(user_name, channel_id) values
+		<foreach collection="channelIds" item="channelId" index="index" separator=",">  
+        	(#{userName},#{channelId})  
+    	</foreach>  
+	</insert>
+  	
+  	<select id="selectSubscribeUser" resultType="java.lang.String">
+  		SELECT
+			t1.USER_NAME
+		FROM
+			gallery_user_subscribe t1
+		LEFT JOIN wcmchannel t2 ON t1.CHANNEL_ID = t2.CHANNELID
+		WHERE
+			t2.CHANNELID = #{channelId}
+  	</select>
+</mapper>

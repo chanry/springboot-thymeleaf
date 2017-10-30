@@ -1,0 +1,183 @@
+.clearfix {
+  display: block;
+  zoom: 1;
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.dis-in-b {
+  display: inline-block;
+}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.text-center{text-align: center;}
+.mt10{margin-top: 10px;}
+.mt14{margin-top: 14px;}
+.mt15{margin-top: 15px;}
+.mt20{margin-top: 20px;}
+.mt30{margin-top: 30px;}
+.mt40{margin-top: 40px;}
+.ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.shadow(@hx, @zx, @mh, @bg-color){
+  -moz-box-shadow: @hx @zx @mh @bg-color;
+  -webkit-box-shadow: @hx @zx @mh @bg-color;
+  box-shadow: @hx @zx @mh @bg-color;
+}
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+@red:#f00;
+@orange:#f60;
+@bule:#03c;
+@font-default:Arial, Helvetica, sans-serif;
+@font-yahei:"微软雅黑";
+@font-st:"宋体";
+@font-12:12px;
+@font-14:14px;
+.nav li{display: inline-block;float: left;}
+.article-list(@list-padding:10px, @font-size:12px, @list-li-height,@font-color:#333, @list-li-bg) {
+  padding:@list-padding;
+  li {
+    height: @list-li-height;
+    span{
+      display: inline-block;
+      float: right;
+      font:@font-size/@list-li-height @font-yahei;
+      color: #666;
+    }
+    a{
+      .dis-in-b;width: 80%;
+      padding-left: 14px;
+      background:@list-li-bg;
+      font:@font-size/@list-li-height @font-yahei;
+      color:@font-color;
+      .ellipsis;
+      &:hover{
+        color: @orange;
+      }
+    }
+  }
+}
+.curmb(@curmb-height:30px, @font-size:12px, @font-color:#333, @curmb-a-bg){
+  height: @curmb-height;
+  font: @font-size/@curmb-height @font-yahei;
+  color: @font-color;
+  a{margin: 0 3px;font: @font-size/@curmb-height @font-yahei;color: @font-color;
+    &.home{.dis-in-b;margin: 0;padding: 0 5px 0 20px;background:@curmb-a-bg;}
+    &:hover{color: #f60;}
+  }
+  span{margin: 0 3px;font: @font-size/@curmb-height @font-yahei;color: @font-color;}
+}
+.page(@padding:17px, @page-height, @font-size, @font-color, @page-hover, @page-hover-bg) {
+  padding: @padding;
+  height: @page-height;
+  font: @font-size/@page-height @font-default;
+  .text-center;
+  color: @font-color;
+  a{
+    .dis-in-b;padding: 0 4px;margin: 2px;font: @font-size/@page-height @font-default;color: @font-color;text-decoration: none;
+    &:hover{color: @page-hover;background: @page-hover-bg;}
+  }
+  span{padding: 0 5px;font: @font-size/@page-height @font-default;color: @font-color;}
+  input.tz {
+    width: 54px;
+    height: 20px;
+    .text-center;
+    font-size: 12px;
+    font-family: @font-default;
+    color: #333;
+    padding-bottom: 3px;
+    padding: 2px 0 0 0 \9;
+    cursor: pointer;
+  }
+}
+
+.xlcontent(@h4-color, @h4-size, @h4-height, @nr-size, @nr-line, @font-family){
+  .main {
+    margin-top: 5px;
+    padding: 30px 40px;
+    .text-center;
+    h4{
+      padding: 10px 0;
+      color: @h4-color;
+      font: @h4-size/@h4-height  @font-family;
+    }
+    h6 {
+      height: 30px;
+      color: #999;
+      label {
+        list-style: none;
+        padding: 0 6px;
+        color: #999;
+        font: 12px/30px @font-family;
+        a {
+          color: #999;
+          padding: 0;
+          &:hover {
+            color: #f60;
+          }
+        }
+      }
+    }
+    .nr {
+      padding: 0 16px;
+      text-align: left;
+      p {
+        font: @nr-size/@nr-line @font-family;
+        padding: 16px 0;
+        *{font: @nr-size/@nr-line @font-family;}
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }}
+.opacity-class(@opacity1:50,@opacity:0.5){
+  filter:alpha(opacity=@opacity1);
+  -moz-opacity:@opacity;
+  -khtml-opacity: @opacity;
+  opacity: @opacity;
+}
+.transform(@transform:360deg){
+  transform: rotate(@transform);
+  -ms-transform: rotate(@transform);
+  -moz-transform: rotate(@transform);
+  -webkit-transform:rotate(@transform);
+  -o-transform:rotate(@transform);
+}
+.transition(@transition:360deg) {
+  transition:@transition;
+  -moz-transition:@transition;
+  -webkit-transition:@transition;
+  -o-transition:@transition;
+}
+.transform(@transform:all 0 ease 0){
+  transform: rotate(@transform);
+  -ms-transform: rotate(@transform);
+  -moz-transform: rotate(@transform);
+  -webkit-transform:rotate(@transform);
+  -o-transform:rotate(@transform);
+}

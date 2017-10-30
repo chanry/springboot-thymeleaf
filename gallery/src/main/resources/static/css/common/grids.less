@@ -1,0 +1,38 @@
+/* ==布局样式== */
+.rows{width: 100%;}
+
+.center-block(@width-all:1000px){
+  width: @width-all;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.row-col-3(@width1, @width2, @width3, @padding-left:10px){
+  .col-3-1{
+    width: @width1;
+    .float-left;
+    padding-left: 0;
+  }
+  .col-3-2{
+     width: @width2;
+    .float-left;
+     padding-left: @padding-left;
+   }
+  .col-3-3{
+    width: @width3;
+    .float-left;
+    padding-left: @padding-left;
+  }
+}
+.row-col-2(@width1, @width2, @padding-left:10px){
+  .col-2-1{
+    width: @width1;
+    .float-left;
+    padding-left: 0;
+  }
+  .col-2-2{
+    width: @width2;
+    .float-left;
+    padding-left: @padding-left;
+  }
+}

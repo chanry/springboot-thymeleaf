@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">  
+<head th:fragment="htmlhead">
+	<meta charset="UTF-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title th:text="${title}"></title>
+</head>
+  
+<body>
+	<!--头部大图开始-->
+	<div th:fragment="head_img" id="ss-top">
+		<img th:src="@{/images/2016cjy-ss-top.jpg}" src="../..images/2016cjy-ss-top.jpg" />
+		<!-- <div class="comment-logo"><a href="#" class="logo"></a></div> -->
+	</div>
+	<!--头部大图结束-->
+	<!--面包屑开始-->
+	<div th:fragment="crumb (title)" class="curmb">
+		<a th:href="@{http://www.gdmoa.org/}" href="#">首页</a>
+		<span>/</span>
+		<a th:href="@{/pcenter}" href="#">个人中心</a>
+		<span>/</span>
+		<span th:text="${title}"></span>
+	</div>
+	<!--面包屑结束-->
+	<!--左侧开始-->
+	<div th:fragment="left_menu (label)" class="cont-l">
+		<dl>
+			<dt class="dt1"><a th:href="@{/collect}" href="javascript:;">我的收藏</a></dt>
+			<div class="Js_leftNav">
+				<dd>
+					<a th:href="@{/collect}" th:class="${label} == 'zl' ? 'cur' : ''" data-id="61" href="./exhibition.html">展览</a>
+				</dd>
+				<dd>
+					<a th:href="@{/collect/mtzx}" th:class="${label} == 'mtzx' ? 'cur' : ''" data-id="116" href="./mediaCenter.html">媒体中心</a>
+				</dd>
+				<dd>
+					<a th:href="@{/collect/ggjy}" th:class="${label} == 'ggjy' ? 'cur' : ''" data-id="96"  href="./education.html">公共教育</a>
+				</dd>
+				<dd>
+					<a th:href="@{/collect/dcjs}" th:class="${label} == 'dcjs' ? 'cur' : ''" data-id="109" href="./art.html">典藏鉴赏</a>
+				</dd>
+				<dd>
+					<a th:href="@{/collect/yjcz}" th:class="${label} == 'xsyj' ? 'cur' : ''" data-id="90"  href="./study.html">研究策展</a>
+				</dd>
+				<!-- <dd>
+					<a th:href="@{/collect/shfw}" th:class="${label} == 'shfw' ? 'cur' : ''" data-id="154" href="./social.html">社会服务</a>
+				</dd> -->
+			</div>
+<!-- 			<dt class="dt2"><a th:href="@{/appt}" th:class="${label} == 'appt' ? 'cur' : ''" href="../yuYue.html">我的预约</a></dt>
+ -->			<dt class="dt3"><a th:href="@{/sub}" th:class="${label} == 'sub' ? 'cur' : ''" href="../dingYue.html">我的订阅</a></dt>
+			<dt class="dt4"><a th:href="@{/layout}" th:class="${label} == 'layout' ? 'cur' : ''" href="../dingZhi">页面定制</a></dt>
+			<dt class="dt5"><a th:href="@{/setting}" href="javascript:;">个人设置</a></dt>
+			<dd>
+				<a th:href="@{/setting}" th:class="${label} == 'setting' ? 'cur' : ''" href="../setting.html">修改信息</a>
+			</dd>
+			<dd>
+				<a th:href="@{/setting/sqzyz}" th:class="${label} == 'sqzyz' ? 'cur' : ''" href="../addVolunteer.html">申请志愿者</a>
+			</dd>
+			<dd class="Js_none">
+				<a th:href="@{/setting/xgtx}" th:class="${label} == 'xgtx' ? 'cur' : ''" href="javascript:;">修改头像</a>
+			</dd>
+			<dd class="Js_none">
+				<a th:href="@{/setting/xgmm}" th:class="${label} == 'xgmm' ? 'cur' : ''" href="../changePassword.html">修改密码</a>
+			</dd>
+		</dl>
+	</div>
+	<!--左侧结束-->
+	<!-- 个人信息 -->
+	<div th:fragment="userInfo" class="grxx clearfix">
+		<img id="headImage" src="" />
+		<div class="grxx-zw">
+			<p class="yw Js_name"></p>
+			<a href="#" class="logout">[注销]</a>
+			<p>欢迎进入个人中心</p>
+		</div>
+	</div>
+	<!-- 个人信息结束 -->
+	<!--底部开始-->
+	<div th:fragment="footer" id="footer">
+		<div class="main">
+			<span class="text-center">Copyright© 2004-2012 广东美术馆 gdmoa.org. All rights reserved 粤ICP备12071615号-1</span>
+		</div>
+	</div>
+	<!--底部结束-->
+</body>
+  
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trs.gallery.mapper.custom.UserCollectDao" >	
+  <resultMap id="BaseResultMap" type="com.trs.gallery.entity.custom.UserCollectInfoBiz" 
+  	extends="com.trs.gallery.mapper.generated.UserCollectInfoMapper.BaseResultMap">
+      <result column="DOCID" jdbcType="INTEGER" property="docId" />
+      <result property="title" javaType="java.lang.String" column="doctitle" />
+      <result property="content" javaType="java.lang.String" column="doccontent" />
+      <result property="pubUrl" javaType="java.lang.String" column="docpuburl" />
+      <collection property="customFields" ofType="com.trs.gallery.entity.custom.CustomField"
+      		column="{docchannel=docchannel, docId=DOCID}" select="com.trs.gallery.mapper.custom.DocumentDao.selectCustomFields">
+      </collection>
+  </resultMap>
+
+  <select id="findListBychnlIds" resultMap="BaseResultMap">
+  	SELECT
+		t1.*, t2.DOCTITLE, t2.DOCCONTENT, t2.DOCCHANNEL, t2.DOCID, t2.DOCPUBURL
+	FROM
+		gallery_user_collect t1
+	LEFT JOIN wcmdocument t2 ON t1.DOC_ID = t2.DOCID
+	LEFT JOIN wcmchannel t3 ON t2.DOCCHANNEL = t3.CHANNELID
+	WHERE 
+		t3.CHANNELID IN 
+		<foreach collection="channelIds" item="channelId" index="index" open="(" separator="," close=")">  
+        	#{channelId} 
+    	</foreach> 
+		AND t1.user_name = #{userName}
+	ORDER BY COLLECT_TIME DESC
+	LIMIT #{start}, #{pageSize}
+  </select>
+  
+  <select id="findList" 
+  	parameterType="com.trs.gallery.entity.custom.PageInfo"
+  	resultMap="BaseResultMap">
+	SELECT
+		t1.*, t2.DOCTITLE, t2.DOCCONTENT, t2.DOCCHANNEL, t2.DOCID
+	FROM
+		gallery_user_collect t1
+	LEFT JOIN wcmdocument t2 ON t1.DOC_ID = t2.DOCID
+	<if test="params != null">
+	WHERE
+		<foreach collection="params" index="key" item="value" separator="AND">  
+            ${key} = #{value}  
+         </foreach>  
+	</if>
+	ORDER BY COLLECT_TIME DESC
+	<if test="offset != null and pageSize != null">
+		LIMIT #{offset}, #{pageSize};
+	</if>
+  </select>
+  
+  <select id="findListTotalNum" 
+  	parameterType="com.trs.gallery.entity.custom.PageInfo"
+  	resultType="java.lang.Integer">
+  	SELECT
+		count(*)
+	FROM
+		gallery_user_collect
+	<if test="params != null">
+	WHERE
+		<foreach collection="params" index="key" item="value" separator="AND">  
+            ${key} = #{value}  
+         </foreach>  
+	</if>
+  </select>
+  
+  <select id="selectCustomFields" parameterType="java.lang.Integer" resultMap="com.trs.gallery.mapper.custom.DocumentDao.CustomFieldResultMap">
+    SELECT
+		t1.FIELDNAME,
+		t2.LOGICFIELDDESC
+	FROM
+		wcmextfield t1
+	LEFT JOIN wcmcontentextfield t2 ON t1.EXTFIELDID = t2.EXTFIELDID
+	WHERE
+		t2.OBJID = #{docchannel}
+  </select>
+  
+  <select id="selectCustomFieldValue" resultType="java.util.Map">
+    <if test="field != ''">
+    	SELECT ${field} FROM wcmdocument WHERE docId = #{docId}
+    </if>
+  </select>
+  
+  <select id="findCountByDocId" resultType="Integer">
+	SELECT COUNT(*) FROM gallery_user_collect WHERE USER_NAME = #{userName}
+  		 AND DOC_ID = #{docId} 
+  </select>
+</mapper>

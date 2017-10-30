@@ -1,0 +1,119 @@
+/**
+ * CSS Document * 
+ * Created by cjy 2017/1/16.
+ */
+.cgzn-cont {
+  width: 1330px;
+  margin: 0 auto;
+  text-align: left;
+}
+.cgzn-cont h1 {
+  display: inline-block;
+  border-bottom: 1px solid #898989;
+  font: 24px/60px "微软雅黑";
+  color: #595757;
+  width: 1330px;
+}
+.cgzn-cont .nr {
+  margin-top: 30px;
+}
+.cgzn-cont .nr .nr-l {
+  width: 300px;
+  display: inline-block;
+}
+.cgzn-cont .nr .nr-l p {
+  color: #595757;
+  font: 14px/30px "微软雅黑";
+}
+.cgzn-cont .nr .nr-l .lb li {
+  width: 100%;
+  background-color: #f3f3f3;
+  height: 44px;
+  margin-bottom: 12px;
+}
+.cgzn-cont .nr .nr-l .lb li a {
+  color: #595757;
+  font: 20px/44px "微软雅黑";
+  margin-left: 14px;
+  width: 270px;
+  display: inline-block;
+  background: url("../images/2016cjy-cgzn-lb.png") no-repeat center right;
+}
+.cgzn-cont .nr .nr-l .lb li a:hover {
+  color: #f60;
+}
+.cgzn-cont .nr .nr-r {
+  margin-left: 80px;
+  width: 947px;
+  display: inline-block;
+}
+.cgzn-cont .nr .nr-r div {
+  display: none;
+}
+.cgzn-cont .nr .nr-r .ditu img {
+  width: 100%;
+}
+.cgzn-cont .ssyfw .btn {
+  display: block;
+  zoom: 1;
+  float: right;
+}
+.cgzn-cont .ssyfw .btn:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cgzn-cont .ssyfw .btn span {
+  display: inline-block;
+  float: left;
+  width: 33px;
+  height: 22px;
+  margin-right: 20px;
+  cursor: pointer;
+  -moz-opacity: 60;
+  -khtml-opacity: 60;
+  opacity: 60;
+}
+.cgzn-cont .ssyfw .btn span:hover {
+  filter: alpha(opacity=1);
+  -moz-opacity: 100;
+  -khtml-opacity: 100;
+  opacity: 100;
+}
+.cgzn-cont .ssyfw .btn span.pre {
+  background: url("../images/2016index_btn_pre.png") no-repeat;
+}
+.cgzn-cont .ssyfw .btn span.next {
+  background: url("../images/2016index_btn_next.png") no-repeat;
+}
+.cgzn-cont .gdtp {
+  width: 426px;
+  float: left;
+}
+.cgzn-cont .gdtp img {
+  width: 426px;
+  height: 239px;
+}
+.cgzn-cont .gdtp a {
+  color: #5c5d5d;
+  font: 14px/18px "微软雅黑";
+  width: 250px;
+  display: inline-block;
+}
+.cgzn-cont .gdtp a strong {
+  display: block;
+  font: 18px/30px "微软雅黑";
+}
+.cgzn-cont .gdtp a:hover {
+  color: #f60;
+}
+.cgzn-cont .ul-lb li a {
+  font: 14px/28px "微软雅黑";
+  color: #595757;
+}
+.cgzn-cont .ul-lb li a:hover {
+  color: #f60;
+}

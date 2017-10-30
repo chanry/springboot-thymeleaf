@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trs.gallery.mapper.custom.AppointmentDao" >	
+  <resultMap id="BaseResultMap" type="com.trs.gallery.entity.custom.AppointmentInfo">
+    <result column="IDCardNum" jdbcType="VARCHAR" property="IDCardNum" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="ticketNum" jdbcType="INTEGER" property="ticketNum" />
+    <result column="apptDate" jdbcType="VARCHAR" property="apptDate" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="documentId" jdbcType="INTEGER" property="docId" />
+  </resultMap>
+
+  <select id="findList" parameterType="com.trs.gallery.entity.custom.PageInfo" resultMap="BaseResultMap">
+		SELECT
+			t1.documentId, t1.apptDate, t1.IDCardNum, t1.mobile, t1.realname, t1.ticketNum,
+			t2.docstatus
+		FROM
+			wcmivtable${extraField} t1
+		INNER JOIN wcmdocument t2 ON t1.documentId = t2.docId
+		
+		WHERE
+			t2.DOCSTATUS != '-1'
+			AND DATE_FORMAT(dateStr, '%Y-%m-%d') >= DATE_FORMAT(NOW(), '%Y-%m-%d')
+		<if test="params != null">
+			AND	
+			<foreach collection="params" index="key" item="value" separator="AND">  
+	            t1.${key} = #{value}  
+	         </foreach>  
+		</if>
+		ORDER BY
+			t1.documentId desc
+		<if test="offset != null and pageSize != null">
+			LIMIT #{offset}, #{pageSize};
+		</if>
+  </select>
+  
+  <select id="findListTotalNum" parameterType="com.trs.gallery.entity.custom.PageInfo" resultType="java.lang.Integer">
+  	SELECT
+		count(*)
+	FROM
+		wcmivtable${extraField} t1
+	INNER JOIN wcmdocument t2 ON t1.documentId = t2.docId
+	WHERE
+		t2.DOCSTATUS != '-1'
+		AND DATE_FORMAT(dateStr, '%Y-%m-%d') >= DATE_FORMAT(NOW(), '%Y-%m-%d')
+	<if test="params != null">
+		AND	
+		<foreach collection="params" index="key" item="value" separator="AND">  
+            t1.${key} = #{value}  
+         </foreach>  
+	</if>
+  </select>
+  
+  <delete id="deleteDocument">
+  	delete from wcmdocument where docId = #{docId}
+  </delete>
+  
+  <delete id="deleteAppointment">
+  	delete from wcmivtable${id} where documentId = #{docId} and userName = #{userName}
+  </delete>
+  
+  <delete id="deleteChnlDoc">
+  	delete from wcmchnldoc where docId = #{docId}
+  </delete>
+  
+  <select id="selectTicketNum" resultType="INTEGER">
+  	SELECT SUM(ticketNum) FROM wcmivtable${id} WHERE userName = #{userName} AND apptDate = #{apptDate}
+  </select>
+  
+  <select id="selectTicketNumByDate" resultType="INTEGER">
+  	SELECT SUM(ticketNum) FROM wcmivtable${id} WHERE apptDate = #{apptDate}
+  </select>
+  
+</mapper>

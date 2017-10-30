@@ -1,0 +1,23 @@
+a.active {
+	color: #f60!important;
+}
+.x-xwbkx {
+	width: 100%;
+    border: #eae9e3 1px solid;
+    border-radius: 2px;
+    background: #FFF;
+    margin-top: 20px;
+    padding: 4px 8px;
+}
+			
+.boxcenter {
+    margin: 16px 0;
+}
+
+.qq-login {
+    width: 170px;
+    height: 32px;
+    position: absolute;
+    border: none;
+	/* background-image: url("http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_4.png"); */
+}

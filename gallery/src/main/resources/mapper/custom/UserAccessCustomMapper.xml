@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trs.gallery.mapper.custom.UserAccessDao" >
+  <select id="findLatelyAccessList" resultMap="com.trs.gallery.mapper.custom.DocumentDao.BaseResultMap">
+  	SELECT
+		t2.DOCID,
+		t2.DOCCHANNEL,
+		t2.DOCTITLE,
+		t2.DOCCONTENT,
+		t2.DOCPUBTIME,
+		t2.DOCPUBURL
+	FROM
+		gallery_user_access t1
+	LEFT JOIN wcmdocument t2 ON t1.DOC_ID = t2.DOCID
+	WHERE
+		t1.USER_NAME = #{userName}
+		AND t2.DOCCHANNEL IN
+	<foreach collection="chnlIds" item="channelId" index="index" open="(" separator="," close=")">  
+       	#{channelId} 
+   	</foreach> 
+	GROUP BY t1.DOC_ID
+	ORDER BY t1.ACCESS_TIME DESC
+	LIMIT 0,4;
+  </select>
+</mapper>

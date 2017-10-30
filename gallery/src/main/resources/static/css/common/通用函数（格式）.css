@@ -1,0 +1,80 @@
+/*
+三列布局：第一列宽，第二列宽，第三列宽，列间距
+.row01{
+  .row-col-3(318px, 400px, 219px, 15px);
+}
+
+两列布局：第一列宽，第二列宽，列间距
+.row02{
+  .row-col-2(218px, 732px, 15px);
+}
+
+文章列表样式：内边距，字体大小，行高，字体颜色，li图标
+.article-list{
+  .article-list(10px,14px,32px,#333,url("../images/dj95_li_ico.png") no-repeat left center);
+}
+
+面包屑：高度，字体大小，字体颜色，home图标
+.curmb{
+  .curmb(38px,14px,#333,url("../images/dj95_li_ico.png") no-repeat left center);
+}
+<!--面包屑开始-->
+        <div class="curmb">
+            <a href="#" class="home">首页</a><span>></span>新闻中心
+        </div>
+        <!--面包屑结束-->
+
+分页导航：上页边距，高度，字体大小，字体颜色，鼠标经过字体颜色，鼠标经过背景
+.page{
+  .page(17px 0, 30px, 12px, #333, #f00, none);
+}
+<!--分页导航开始-->
+            <div class="page mt20">
+                <form action="" method="get">
+                    <span>共1页，当前第1页</span><span><a href="#">首页</a></span><span><a href="#">上一页</a></span><span><a
+                        href="#">刷新</a></span><span><a href="#">下一页</a></span><span><a href="#">尾页</a></span><span>
+      <input name="" type="text" style="width:50px;"/>
+      </span><span>页</span><span>
+      <input name="" type="submit" class="tz" value="跳转"/>
+      </span>
+                </form>
+            </div>
+<!--分页导航结束-->
+细览：h4字体颜色，h4字体大小，h4行高，内容字体字体大小，内容行高，字体样式]
+.xlcontent{
+  .xlcontent(#297f0a, 24px, 36px, 14px, 30px, @font-yahei)
+}
+<div class="xlcontent">
+            <div class="main">
+                <h4>牛宝俊副厅长一行到汕尾市调研指导农业机械化工作</h4>
+                <h6>
+                    <label>发布机构：江西省卫生计生委</label>
+                    <label>发布日期：2014-09-17</label>
+                    <label>文件编号：ZJSP58-2014-0003</label>
+                </h6>
+                <div class="nr">
+                    <p>"十一五"期间，广东积极转变经济增长方式，在促进全省社会经济平稳发展的同时，着力保障和改善民生，城乡居民收入和消费水平明显提高，城乡居民收入差距有所缩小，但城乡居民消费差距扩大,在一定程度上影响了经济社会的全面、协调发展，需采取相应对策，保持城乡居民生活水平的协调增长。"十一五"期间，广东积极转变经济增长方式，在促进全省社会经济平稳发展的同时，着力保障和改善民生，城乡居民收入和消费水平明显提高，城乡居民收入差距有所缩小，但城乡居民消费差距扩大,在一定程度上影响了经济社会的全面、协调发展，需采取相应对策，保持城乡居民生活水平的协调</p>
+                    <p>"十一五"期间，各级政府出台一系列增收措施，确保居民收入的稳定增长。调查显示，2010年广东城镇居民人均可支配收入达23897.8元，比2005年的14769.94元增长61.8%，年均增长10.1%，增幅比"十五"期间高1.5个百分点；2010年广东农村居民人均纯收入达7890.3元，比2005"十一五"期间，广东积极转变经济增长方式，在促进全省社会经济平稳发展的同时，着力保障和改善民生，城乡居民收入和消费水平明显提高，城乡居民收入差距有所缩小，但城乡居民消费差距扩大,在一定程度上影响了经济社会的全面、协调发展，需采取相应对策，保持城乡居民生活水平的协调年的4690.5元增长68.2%，年均增长11%，增幅比"十五"期间高5.9个百分点。</p>
+                    <p>"十一五"期间，广东农村居民人均纯收入年均增长比城镇居民快0.9个百分点，城乡居民收入差距"十一五"期间，广东积极转变经济增长方式，在促进全省社会经济平稳发展的同时，着力保障和改善民生，城乡居民收入和消费水平明显提高，城乡居民收入差距有所缩小，但城乡居民消费差距扩大,在一定程度上影响了经济社会的全面、协调发展，需采取相应对策，保持城乡居民生活水平的协调在总体上呈现出不断缩小的趋势。城乡居民收入比由2005年的3.15∶1，缩小到2010年的3.03∶1。</p>
+                </div>
+                <div class="xl-bot clearfix">
+                    <div class="dis-in-b float-left">
+                        <p><a href="#" class="btn-a btn-ico01">打印</a><a href="#" class="btn-a btn-ico02">纠错</a><a href="#" class="btn-a btn-ico03">关闭</a> </p>
+                        <p><a class="bt-next" href="#">下一篇：江西省人口计生委关于印发《浙江省农村...</a></p>
+                    </div>
+                    <!-- JiaThis Button BEGIN -->
+                    <div class="dis-in-b float-right mt20 jiathis_style_24x24">
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_tqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_renren"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                        <a class="jiathis_counter_style"></a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->
+                </div>
+            </div>
+        </div>
+*/

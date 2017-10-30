@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<link rel="stylesheet" th:href="@{/lib/bootstrap.min.css}"  href="../lib/bootstrap.min.css" />
+		<link rel="stylesheet" th:href="@{/css/2016msg_style.css}"  href="css/2016msg_style.css" />
+		<link rel="stylesheet" th:href="@{/css/2016cjy-ss-style.css}"  href="css/2016cjy-ss-style.css" />
+		<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"  href="css/font-awesome.min.css" />
+		<title>个人中心</title>
+	</head>
+
+	<body style="overflow: auto;">
+		<!--头部大图开始-->
+		<div th:replace="common :: head_img" id="ss-top">
+			<img th:src="@{/images/2016cjy-ss-top.jpg}" src="images/2016cjy-ss-top.jpg" />
+		</div>
+		<!--头部大图结束-->
+		<!--主体开始-->
+		<div id="content" class="ss-con">
+			<!--面包屑开始-->
+			<div class="curmb">
+				<a th:href="@{http://www.gdmoa.org/}"  href="http://www.gdmoa.org/">首页</a>
+				<span>/</span>
+				<a th:href="@{javascript:;}"  href="javascript:;">个人中心</a>
+			</div>
+			<!--面包屑结束-->
+			<!--个人信息开始-->
+			<div class="index-grxx clearfix">
+				<div class="gr float-left">
+					<img id="headImage" th:src="@{/images/2016cjy-grxx.png}" src="images/2016cjy-grxx.png" />
+					<p>欢迎您</p>
+					<div class="text-center">
+						<p class="Js_name dis-in-b">xiefujundesign</p>
+						<a href="#" class="logout">[注销]</a>
+					</div>
+					
+				</div>
+				<div class="wd float-left ">
+					<div class="rq">
+                        <!-- 日历 start -->
+                        <div class='calendar_' id='calendar'>
+                            <div class="calendar-title-box">
+                                <span class='prev-month' id='prevMonth'>
+                                    <i class="fa fa-chevron-left"></i>
+                                </span>
+                                <span class='calendar-title' id='calendarTitle'></span>
+                                <span id='nextMonth' class='next-month'>
+                                    <i class="fa fa-chevron-right"></i>
+                                </span>
+                            </div>
+                            <div id="calendar-body-box">
+                                <table id='calendarTable' class='Js_calendarTable calendar-table'>
+                                    <tr>
+                                        <th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- 日历 end -->
+					</div>
+					<div class="zw">
+						<div class="zw-tit clearfix">
+							<ul class="tab-hd Js_list tabList">
+								<li>
+									<a href="javascript:;" >展览 </a>
+								</li>
+								<li>
+									<a href="javascript:;" >公教活动</a>
+								</li>
+								<li>
+									<a href="javascript:;" >新闻 </a>
+								</li>
+							</ul>
+						</div>
+						<div class="zw-body tab-bd Js_body tabBody">
+							<ul class="Js_exhibition">
+
+
+							</ul>
+							<ul class="Js_education">
+
+
+							</ul>
+							<ul class="Js_news">
+
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="wdsc float-left com">
+
+					<a th:href="@{/collect}"  href="./view/collecting/exhibition.html">
+						<img th:src="@{/images/2016cjy-grzx-logo01.png}" src="images/2016cjy-grzx-logo01.png" />
+						<p>我的收藏</p>
+					</a>
+				</div>
+				<div class="wddy float-left com">
+					<a th:href="@{/sub}"  href="./view/dingYue.html">
+						<img th:src="@{/images/2016cjy-grzx-logo02.png}" src="images/2016cjy-grzx-logo02.png" />
+						<p>我的订阅</p>
+					</a>
+				</div>
+				<!-- <div class="wdyy float-left com">
+					<a th:href="@{/appt}"  href="./view/yuYue.html">
+						<img th:src="@{/images/2016cjy-grzx-logo03.png}" src="images/2016cjy-grzx-logo03.png" />
+						<p>我的预约</p>
+					</a>
+				</div> -->
+				<div class="ymdz float-left com">
+					<a th:href="@{/layout}"  href="./view/dingZhi.html">
+						<img th:src="@{/images/2016cjy-grzx-logo04.png}" src="images/2016cjy-grzx-logo04.png" />
+						<p>页面定制</p>
+					</a>
+				</div>
+				<div class="zhsz float-left com">
+					<a th:href="@{/setting}"  href="./view/setting.html">
+						<img th:src="@{/images/2016cjy-grzx-logo05.png}" src="images/2016cjy-grzx-logo05.png" />
+						<p>账户设置</p>
+					</a>
+				</div>
+			</div>
+
+			<!--个人信息结束-->
+			<!--展览开始-->
+			<div class="ss-con02">
+				<div class="con-tit">
+					<span>展览</span>
+
+				</div>
+				<div class="ejlm clearfix">
+					<ul class="tab-hd1 Js_list" data-name="展览">
+						<li>
+							<a href="javascript:;">热门展览</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event" data-type>收藏展览</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">最近浏览</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-bd1 grzx-yc Js_body Js_zlList">
+					<div class="con-body Js_hot">
+
+
+					</div>
+					<div class="con-body collect">
+
+
+					</div>
+					<div class="con-body lately">
+
+
+					</div>
+				</div>
+
+			</div>
+			<!--展览结束-->
+				<!--媒体中心开始-->
+			<div class="ss-con02">
+				<div class="con-tit">
+					<span>媒体中心</span>
+
+				</div>
+				<div class="ejlm clearfix">
+					<ul class="tab-hd2 Js_list" data-name="媒体中心">
+						<li>
+							<a href="javascript:;">热门媒体</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">收藏媒体</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">最近媒体</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-bd2 grzx-yc Js_body">
+					<div class="con-body Js_hot">
+
+
+					</div>
+					<div class="con-body collect">
+
+
+					</div>
+					<div class="con-body lately">
+
+
+					</div>
+				</div>
+
+			</div>
+			<!--媒体中心结束-->
+		 	<!--公共教育开始-->
+			<div class="ss-con02">
+				<div class="con-tit">
+					<span>公共教育</span>
+
+				</div>
+				<div class="ejlm clearfix">
+					<ul class="tab-hd3 Js_list" data-name="公共教育">
+						<li>
+							<a href="javascript:;">热门教育</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">收藏教育</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">最近教育</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-bd3 grzx-yc Js_body">
+					<div class="con-body Js_hot">
+
+
+					</div>
+					<div class="con-body collect">
+
+
+					</div>
+					<div class="con-body lately">
+
+
+					</div>
+				</div>
+
+			</div>
+			<!--公共教育结束-->
+			<!--学术研究开始-->
+		<div class="ss-con02">
+			<div class="con-tit">
+				<span>学术研究</span>
+
+			</div>
+			<div class="ejlm clearfix">
+				<ul class="tab-hd6 Js_list" data-name="学术研究">
+					<li>
+						<a href="javascript:;">热门研究</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="Js_event">收藏研究</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="Js_event">最近研究</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab-bd6 grzx-yc Js_body">
+				<div class="con-body Js_hot">
+
+
+				</div>
+				<div class="con-body collect">
+
+
+				</div>
+				<div class="con-body lately">
+
+
+				</div>
+			</div>
+
+		</div>
+		<!--学术研究结束-->
+
+				<!--典藏鉴赏开始-->
+			<div class="ss-con02">
+				<div class="con-tit">
+					<span>典藏鉴赏</span>
+
+				</div>
+				<div class="ejlm clearfix">
+					<ul class="tab-hd4 Js_list" data-name="典藏鉴赏">
+						<li>
+							<a href="javascript:;">热门典藏</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">收藏典藏</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">最近典藏</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-bd4 grzx-yc Js_body">
+					<div class="con-body Js_hot">
+
+
+					</div>
+					<div class="con-body collect">
+
+
+					</div>
+					<div class="con-body lately">
+
+
+					</div>
+				</div>
+
+			</div>
+			<!--典藏鉴赏结束-->
+				<!--社会服务开始-->
+			<div class="ss-con02">
+				<div class="con-tit">
+					<span>社会服务</span>
+
+				</div>
+				<div class="ejlm clearfix">
+					<ul class="tab-hd6 Js_list" data-name="社会服务">
+						<li>
+							<a href="javascript:;">热门服务</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">收藏服务</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="Js_event">最近服务</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-bd6 grzx-yc Js_body">
+					<div class="con-body Js_hot">
+
+
+					</div>
+					<div class="con-body collect">
+
+
+					</div>
+					<div class="con-body lately">
+
+
+					</div>
+				</div>
+
+			</div>
+			<!--社会服务结束-->
+		</div>
+		<!--主体结束-->
+		<!--底部开始-->
+		<div th:replace="common :: footer" id="footer">
+			<div class="main">
+				<span class="float-left">Copyright© 2004-2012 广东美术馆 gdmoa.org. All rights reserved 粤ICP备12071615号-1</span>
+				<span class="float-right">
+            <a th:href="@{/#}"  href="#">网站留言</a>
+            <a th:href="@{/#}"  href="#">法律声明</a>
+            <a th:href="@{/#}"  href="#">友情链接</a>
+            <a th:href="@{/#}"  href="#">二维码</a>
+        </span>
+			</div>
+		</div>
+		<!--底部结束-->
+		<!--弹出菜单开始-->
+		<h2 class="tc-btn"><span class="btn"></span></h2>
+		<!--弹出菜单结束-->
+		<script th:src="@{/js/page_common.js}" src="./js/page_common.js"></script>
+		<script th:src="@{/js/page_rgzx.js}" src="./js/page_rgzx.js"></script>
+	</body>
+
+</html>

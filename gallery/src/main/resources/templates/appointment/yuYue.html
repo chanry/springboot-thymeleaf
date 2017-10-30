@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" th:href ="@{/lib/bootstrap.min.css}"  href="../lib/bootstrap.min.css" />
+		<link rel="stylesheet" th:href ="@{/css/2016msg_style.css}"  href="../css/2016msg_style.css" />
+		<link rel="stylesheet" th:href ="@{/css/2016cjy-ss-style.css}"  href="../css/2016cjy-ss-style.css" />
+		<title>个人中心-我的收藏-我的预约</title>
+	</head>
+
+	<body style="overflow: auto;">
+		<!--头部大图开始-->
+		<div th:replace="common :: head_img" id="ss-top">
+			<img th:src="@{/images/2016cjy-ss-top.jpg}" src="../..images/2016cjy-ss-top.jpg" />
+			<div class="comment-logo"><a href="#" class="logo"></a></div>
+		</div>
+		<!--头部大图结束-->
+		<!--主体开始-->
+		<div id="content" class="ss-con">
+			<!--面包屑开始-->
+			<div th:replace="common :: crumb (我的预约)" class="curmb">
+				<a href="http://www.gdmoa.org">首页</a><span>/</span>
+				<a href="../index.html">个人中心</a><span>/</span>
+				<a href="javascript:;">我的预约</a>
+			</div>
+			<!--面包屑结束-->
+			<div class="cont-sc clearfix">
+				<!--左侧开始-->
+                <div th:replace="common :: left_menu (appt)" class="cont-l">
+                    <dl>
+                        <dt class="dt1"><a href="javascript:;">我的收藏</a></dt>
+                        <div class="Js_leftNav">
+                            <dd>
+                                <a href="./exhibition.html" data-id="86">展览</a>
+                            </dd>
+                            <dd>
+                                <a href="./mediaCenter.html" data-id="116">媒体中心</a>
+                            </dd>
+                            <dd>
+                                <a href="./education.html" data-id="96">公共教育</a>
+                            </dd>
+                            <dd>
+                                <a href="./art.html" data-id="139">典藏鉴赏</a>
+                            </dd>
+                            <dd>
+                                <a href="./study.html" data-id="90">学术研究</a>
+                            </dd>
+                            <dd>
+                                <a href="./social.html" data-id="154">社会服务</a>
+                            </dd>
+                        </div>
+                        <dt class="dt2"><a href="javascript:;" class="cur">我的预约</a></dt>
+                        <dt class="dt3"><a href="./dingYue.html">我的订阅</a></dt>
+                        <dt class="dt4"><a href="./dingZhi.html">页面制定</a></dt>
+                        <dt class="dt5"><a href="javascript:;">个人设置</a></dt>
+						<dd>
+							<a href="./setting.html">修改信息</a>
+						</dd>
+						<dd>
+							<a href="./addVolunteer.html">申请志愿者</a>
+						</dd>
+						<dd>
+							<a href="./uploadHead.html">修改头像</a>
+						</dd>
+						<dd>
+							<a href="./changePassword.html">修改密码</a>
+						</dd>
+                    </dl>
+                </div>
+				<!--左侧结束-->
+				<!--右侧开始-->
+				<div class="cont-r">
+					<div th:replace="common :: userInfo" class="grxx">
+						<!-- <img th:src="@{/images/2016cjy-grxx.png}" src="../..ages/2016cjy-grxx.png" />
+						<div class="grxx-zw">
+							<p class="yw Js_name">xiefujundesign</p>
+							<p>欢迎进入个人中心</p>
+						</div> -->
+					</div>
+					<!--预约开始-->
+
+					<!--预约说明开始-->
+					<div class="yysm com-1">
+						<div class="tit">预约说明</div>
+						<p>
+							1、首次预约请先注册为广东美术馆网站会员并按照提示登录预约；
+							<br/> 2、已注册为广东美术馆网站会员的用户请先登录并按要求预约；
+							<br/> 3、预约采取实名制，需填写预约人的姓名、联系方式、有效证件号码等信息；
+							<br/> 4、网上每日开放限额2000张预约票，每人每日预约免费票不得超过5张；
+							<br/> 5、预约成功后页面会有提示，预约者凭有效证件直接到广东美术馆领票处预约窗口领取免费参观票；
+							<br/> 6、预约票当日有效，过期作废。
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<td>序号 </td>
+									<td>预约参观日期 </td>
+									<td>预约状态 </td>
+									<td>预约 </td>
+								</tr>
+							</thead>
+							<tbody class="Js_yuYue">
+
+							</tbody>
+						</table>
+					</div>
+					<!--预约说明开始-->
+					<!--我的预约记录开始-->
+					<div class="yysm">
+						<div class="wdyyjl">我的预约记录</div>
+
+						<table>
+							<thead>
+								<tr>
+									<td>序号 </td>
+									<td>预约参观日期 </td>
+									<td>预约票数 </td>
+									<td>操作 </td>
+								</tr>
+							</thead>
+							<tbody class="Js_myYuYue">
+
+							</tbody>
+						</table>
+					</div>
+					<!--我的预约记录开始-->
+					<!--预约结束-->
+				</div>
+			</div>
+			<!--右侧结束-->
+
+		</div>
+		<!--主体结束-->
+		<!--底部开始-->
+		<div th:replace="common :: footer" id="footer">
+			<div class="main">
+				<span class="float-left">Copyright© 2004-2012 广东美术馆 gdmoa.org. All rights reserved 粤ICP备12071615号-1</span>
+				<span class="float-right">
+            <a href="#">网站留言</a>
+            <a href="#">法律声明</a>
+            <a href="#">友情链接</a>
+            <a href="#">二维码</a>
+        </span>
+			</div>
+		</div>
+
+        <div class="modal fade Js_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">门票预约</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="appt">
+                            <div class="form-group">
+                                <label class="control-label">真实姓名</label>
+                                <input type="text" class="form-control" name="realname" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">身份证号码</label>
+                                <input type="text" class="form-control" name="Tel" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">手机号</label>
+                                <input type="text" class="form-control" name="mobile" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">预约票数</label>
+                                <select type="text" class="form-control" name="ticketNum" >
+                                    <option value ="1">1</option>
+                                    <option value ="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary Js_yyBtn">预约</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+		<!--底部结束-->
+		<!--弹出菜单开始-->
+		<h2 class="tc-btn"><span class="btn"></span></h2>
+		<!--弹出菜单结束-->
+		<script  th:src="@{/js/page_common.js}" src="../../page_common.js"></script>
+		<script  th:src="@{/js/page_wdyy.js}" src="../../page_wdyy.js"></script>
+	</body>
+
+</html>

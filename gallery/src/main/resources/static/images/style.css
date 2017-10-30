@@ -1,0 +1,23 @@
+
+.riqi table {
+	font-size: 1em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+.ui-datepicker td,.ui-datepicker th,.ui-datepicker .ui-datepicker-title {
+	 font: 18px Arial, Helvetica, sans-serif;
+}
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.4em;
+}
+.ui-datepicker td {
+  border: 0;
+  padding: 2px;
+}
+#datepicker2{
+	margin-left: 50px;
+}

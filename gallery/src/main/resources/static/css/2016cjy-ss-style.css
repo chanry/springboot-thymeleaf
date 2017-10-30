@@ -1,0 +1,957 @@
+/**
+ * CSS Document *
+ * Created by cjy 2016/12/14.
+ */
+#ss-top .comment-logo {
+  width: 1330px;
+  margin: 0 auto;
+}
+#ss-top .comment-logo .logo {
+  position: absolute;
+  top: 0;
+  display: block;
+  margin-top: 72px;
+  width: 261px;
+  height: 51px;
+  background: url("../images/2016cjy-ggjy-logo.png") no-repeat;
+}
+.ss-con {
+  width: 1168px;
+  margin: 0 auto;
+  /*搜索页面*/
+  /*搜索页面*/
+  /*个人中心-展览页面*/
+  /*个人中心-展览页面*/
+  /*个人中心*/
+  /*个人中心*/
+  /*个人中心*/
+  /*我的预约*/
+  /*我的预约*/
+  /*我的订阅*/
+  /*我的订阅*/
+  /*个人设置-修改信息*/
+  /*个人设置-修改信息*/
+}
+.ss-con .ntzx-tit {
+  margin-top: 50px;
+  font: 24px/64px "微软雅黑";
+  color: #595757;
+  border-bottom: 1px solid #898989;
+}
+.ss-con .ntzx-body ul {
+  margin-top: 16px;
+  float: left;
+}
+.ss-con .ntzx-body ul li {
+  float: left;
+  margin: 0 15px;
+  font: 20px/50px "微软雅黑";
+  color: #595757;
+  padding: 0 4px;
+}
+.ss-con .ntzx-body ul li.cur,
+.ss-con .ntzx-body ul li:hover {
+  border-bottom: 3px solid #9f9fa0;
+}
+.ss-con .ntzx-body span {
+  margin-top: 28px;
+  float: right;
+}
+.ss-con .ntzx-body span a {
+  margin-top: 22px;
+  font: 16px/24px "微软雅黑";
+  border-bottom: 2px solid #9f9fa0;
+  display: none;
+  color: #595757;
+  padding: 0 4px;
+}
+.ss-con .ntzx-body span a.cur,
+.ss-con .ntzx-body span a:hover {
+  color: #f60;
+  border-bottom: 2px solid #f60;
+}
+.ss-con .mtzx-cont .cont1 {
+  display: none;
+}
+.ss-con .mtzx-cont table {
+  margin-top: 38px;
+}
+.ss-con .mtzx-cont table tr td {
+  height: 120px;
+  vertical-align: top;
+}
+.ss-con .mtzx-cont table tr td:nth-child(1) {
+  width: 200px;
+}
+.ss-con .mtzx-cont table tr td:nth-child(1) img {
+  width: 200px;
+  height: 110px;
+}
+.ss-con .mtzx-cont table tr td:nth-child(2) {
+  width: 1020px;
+  padding: 10px 0 0 42px;
+}
+.ss-con .mtzx-cont table tr td:nth-child(2) p {
+  font: 16px/24px "微软雅黑";
+  color: #595757;
+}
+.ss-con .mtzx-cont table tr td:nth-child(2) a {
+  font: 18px/30px "微软雅黑";
+  color: #595757;
+}
+.ss-con .mtzx-cont table tr td:nth-child(2) a:hover {
+  color: #f60;
+}
+.ss-con .mtzx-cont table tr td:nth-child(3) {
+  width: 110px;
+  text-align: center;
+  padding-top: 10px;
+  font: 16px/24px "微软雅黑";
+  color: #595757;
+}
+.ss-con .ss-con02 {
+  margin-top: 20px;
+  display: none;
+}
+.ss-con .con-tit span {
+  width: 200px;
+  font: 24px/64px "微软雅黑";
+  color: #595757;
+  border-bottom: 1px solid #a0a0a1;
+  display: inline-block;
+}
+.ss-con .con-tit a {
+  float: right;
+  margin-top: 22px;
+  font: 16px/24px "微软雅黑";
+  border-bottom: 1px solid #a0a0a1;
+  color: #595757;
+}
+.ss-con .con-tit a:hover {
+  color: #f60;
+  border-bottom: 1px solid #f60;
+}
+.ss-con .con-body .nr {
+  margin-top: 10px;
+  width: 580px;
+  display: inline-block;
+}
+.ss-con .con-body .nr.collect {
+  margin-top: 10px;
+  width: 472px;
+  display: inline-block;
+}
+.ss-con .con-body .nr > a {
+    width: 230px;
+    display: inline-block;
+    height: 150px;
+    overflow: hidden;
+}
+.ss-con .con-body .nr.collect > a {
+    width: auto;
+    height: auto;;
+    display: inline-block;
+    overflow: hidden;
+}
+.ss-con .con-body .nr img {
+    width: 230px;
+    /*height: 150px;*/
+    position: relative;
+    clip: rect(0px, 230px, 150px, 0px);
+    display: inline-block;
+    float: left;
+}
+.ss-con .con-body .nr.collect img {
+    width: 150px;
+    height: 84px;
+    position: relative;
+    clip: rect(0px, 150px, 84px, 0px);
+    display: inline-block;
+    float: left;
+}
+.ss-con .con-body .nr .nr-wz {
+  float: right;
+  width: 300px;
+  margin-right: 33px;
+}
+.ss-con .con-body .nr .nr-wz a {
+  font: bold 16px/24px "微软雅黑";
+  color: #000;
+  margin-bottom: 20px;
+  display: block;
+}
+.ss-con .con-body .nr .nr-wz a:hover {
+  color: #f60;
+}
+.ss-con .con-body .nr .nr-wz p {
+  font: 12px/22px "微软雅黑";
+  color: #898989;
+}
+.ss-con .con-body .nr .nr-wz p.dcjs {
+  display: inline-block;
+    width: 150px;
+}
+.ss-con .cont-sc {
+  margin-top: 60px;
+}
+.ss-con .cont-sc .cont-l {
+  float: left;
+  width: 260px;
+  display: inline-block;
+}
+.ss-con .cont-sc .cont-l dl a {
+  padding-left: 40px;
+}
+.ss-con .cont-sc .cont-l dl .dt1 {
+  background: url("../images/2016cjy-zl-left01.png") left center no-repeat;
+}
+.ss-con .cont-sc .cont-l dl .dt2 {
+  background: url("../images/2016cjy-zl-left02.png") left center no-repeat;
+}
+.ss-con .cont-sc .cont-l dl .dt3 {
+  background: url("../images/2016cjy-zl-left03.png") left center no-repeat;
+}
+.ss-con .cont-sc .cont-l dl .dt4 {
+  background: url("../images/2016cjy-zl-left04.png") left center no-repeat;
+}
+.ss-con .cont-sc .cont-l dl .dt5 {
+  background: url("../images/2016cjy-zl-left05.png") left center no-repeat;
+}
+.ss-con .cont-sc .cont-l dl dt a {
+  font: 16px/40px "微软雅黑";
+  color: #595757;
+}
+.ss-con .cont-sc .cont-l dl dt a.cur,
+.ss-con .cont-sc .cont-l dl dt a:hover {
+  color: #f60;
+}
+.ss-con .cont-sc .cont-l dl dd a {
+  font: 14px/40px "微软雅黑";
+  color: #898989;
+}
+.ss-con .cont-sc .cont-l dl dd a.cur,
+.ss-con .cont-sc .cont-l dl dd a:hover {
+  color: #f60;
+}
+.ss-con .cont-sc .cont-r {
+  float: left;
+  width: 900px;
+  display: inline-block;
+}
+.ss-con .cont-sc .cont-r .grxx img {
+  width: 120px;
+  height: 120px;
+  float: left;
+  display: inline-block;
+}
+.ss-con .cont-sc .cont-r .grxx .grxx-zw {
+  display: inline-block;
+  padding-left: 40px;
+  float: left;
+}
+.ss-con .cont-sc .cont-r .grxx .grxx-zw p,
+.ss-con .cont-sc .cont-r .grxx .grxx-zw a {
+  color: #595757;
+  font: 14px/34px "微软雅黑";
+}
+.ss-con .cont-sc .cont-r .grxx .grxx-zw p.yw,
+.ss-con .cont-sc .cont-r .grxx .grxx-zw a.yw {
+  font-size: 14px;
+}
+.ss-con .cont-sc .cont-r .grxx .grxx-zw a {
+  text-decoration: underline;
+}
+.ss-con .cont-sc .cont-r .grxx .grxx-zw a:hover {
+  color: #f60;
+}
+.ss-con .cont-sc .cont-r .zl-con-zw {
+  width: 100%;
+}
+.ss-con .cont-sc .cont-r .zl-con-zw .con-body .nr {
+  /*width: 530px;*/
+}
+.ss-con .cont-sc .cont-r .zl-con-zw .con-body .nr .nr-wz {
+  width: 270px;
+}
+.ss-con .index-grxx > div {
+  display: inline-block;
+}
+.ss-con .index-grxx .gr {
+  width: 200px;
+  height: 390px;
+  background-color: #f7f7f7;
+}
+.ss-con .index-grxx .gr p {
+  color: #898989;
+  font: 14px/26px "微软雅黑";
+  text-align: center;
+}
+.ss-con .index-grxx .gr img {
+  display: block;
+  width: 174px;
+  height: 174px;
+  margin: 40px 0px 20px 13px;
+}
+.ss-con .index-grxx .wd {
+  margin-left: 10px;
+  width: 944px;
+  height: 390px;
+  background-color: #f7f7f7;
+}
+.ss-con .index-grxx .wd .rq {
+  width: 330px;
+  height: 320px;
+  margin: 14px 14px 0 14px;
+  float: left;
+}
+.ss-con .index-grxx .wd .zw {
+  width: 573px;
+  height: 330px;
+  float: left;
+}
+.ss-con .index-grxx .wd .zw .zw-tit {
+  display: block;
+  border-bottom: 1px solid #a0a0a1;
+}
+.ss-con .index-grxx .wd .zw .zw-tit li {
+  float: left;
+  margin-right: 30px;
+}
+.ss-con .index-grxx .wd .zw .zw-tit li a {
+  font: 20px/50px "微软雅黑";
+  color: #595757;
+  display: inline-block;
+  border-bottom: 1px solid #a0a0a1;
+  position: relative;
+    top: 1px;
+    text-decoration: none;
+}
+.ss-con .index-grxx .wd .zw .zw-tit li.cur a {
+    color: #f60;
+}
+.ss-con .index-grxx .wd .zw .zw-tit li a:hover {
+    color: #f60;
+}
+.ss-con .index-grxx .wd .zw .zw-body {
+  margin-top: 20px;
+  width: 100%;
+}
+.ss-con .index-grxx .wd .zw .zw-body ul {
+  display: none;
+}
+.ss-con .index-grxx .wd .zw .zw-body li {
+  height: 32px;
+  border-bottom: 1px solid #a0a0a1;
+}
+.ss-con .index-grxx .wd .zw .zw-body li a {
+  font: 14px/32px "微软雅黑";
+  color: #898989;
+  display: inline-block;
+      width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.ss-con .index-grxx .wd .zw .zw-body li a:hover {
+  color: #f60;
+}
+.ss-con .index-grxx .wd .zw .zw-body li span {
+  font: 14px/32px "微软雅黑";
+  color: #898989;
+  float: right;
+}
+.ss-con .index-grxx .com {
+  width: 281px;
+  height: 200px;
+  background-color: #f7f7f7;
+}
+.ss-con .index-grxx .com a {
+  text-align: center;
+  margin-top: 40px;
+  display: block;
+}
+.ss-con .index-grxx .com a p {
+  color: #898989;
+  font: 14px/34px "微软雅黑";
+}
+.ss-con .index-grxx .com a:hover p {
+  color: #f60;
+}
+.ss-con .index-grxx .wdsc {
+  margin-top: 10px;
+}
+.ss-con .index-grxx .wddy {
+  margin: 10px 0 0 10px;
+}
+.ss-con .index-grxx .wdyy {
+  margin: 10px 0 0 10px;
+}
+.ss-con .index-grxx .ymdz {
+  margin: 10px 0 0 10px;
+}
+.ss-con .index-grxx .zhsz {
+  margin: 10px 0 0 10px;
+  /*width: 225px;
+  height: 200px;
+  background-color: #f7f7f7;*/
+}
+.ss-con .ejlm {
+  display: block;
+}
+.ss-con .ejlm li {
+  float: left;
+}
+.ss-con .ejlm li a {
+  margin-right: 30px;
+  font: bold 16px/30px "微软雅黑";
+  color: #595757;
+  display: inline-block;
+  border-bottom: 2px solid #FFFFFF;
+  text-decoration: none;
+  height: 30px;
+}
+.ss-con .ejlm li.cur a,
+.ss-con .ejlm li a:hover {
+  color: #f60;
+}
+.ss-con .grzx-yc .con-body {
+  display: none;
+}
+.ss-con .com-1 .tit {
+  font: 24px/70px "微软雅黑";
+  color: #595757;
+  display: block;
+  border-bottom: 1px solid #a0a0a1;
+}
+.ss-con .com-1 p {
+  margin-top: 20px;
+  font: 14px/36px "微软雅黑";
+  color: #595757;
+}
+.ss-con .yysm table {
+  margin-top: 30px;
+}
+.ss-con .yysm table a {
+  color: #595757;
+}
+.ss-con .yysm table a:hover {
+  color: #f60;
+}
+.ss-con .yysm table td {
+  color: #595757;
+  text-align: center;
+}
+.ss-con .yysm table thead td {
+  font: 20px/50px "微软雅黑";
+  background-color: #eeefef;
+}
+.ss-con .yysm table tbody td {
+  font: 16px/50px "微软雅黑";
+  border: 2px dotted #dddede;
+}
+.ss-con .yysm table tbody tr:first-child td {
+  border-top: none;
+}
+.ss-con .yysm .wdyyjl {
+  margin-top: 70px;
+  font: 24px/40px "微软雅黑";
+  color: #595757;
+  display: inline-block;
+  padding-right: 30px;
+  border-bottom: 1px solid #a0a0a1;
+}
+.ss-con .dynr {
+  margin-top: 20px;
+}
+.ss-con .dynr .dy {
+  float: left;
+  margin-bottom: 40px;
+  width: 70px;
+  margin-right: 62px;
+  position: relative;
+}
+.ss-con .dynr .dy > img{
+  width: 70px;
+  height: 70px;
+}
+.ss-con .dynr .dy ma img {
+  width: 201px;
+  height: 201px;
+}
+
+.ss-con .dynr .dy p {
+  margin-top: 0;
+  font: 16px/20px "微软雅黑";
+  color: #898989;
+  text-align: center;
+}
+.ss-con .dynr .dy .xuanze {
+  position: absolute;
+  left: 27px;
+  bottom: -26px;
+  width: 16px;
+  height: 16px;
+}
+.ss-con .dynr .dy .dycg {
+    position: absolute;
+    width: 73px;
+    height: 73px;
+    left: -3px;
+    top: -3px;
+    font: 16px/80px "微软雅黑";
+    color: #898989;
+    text-align: center;
+    background: url("../images/2016cjy-wddy-dy-bj.png") no-repeat;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+}
+.ss-con .xgxx-nr {
+  margin-top: 40px;
+}
+.ss-con .xgxx-nr .lb {
+  height: 44px;
+}
+.ss-con .xgxx-nr .lb span {
+  font: 16px/44px "微软雅黑";
+  color: #898989;
+  position: absolute;
+}
+.ss-con .xgxx-nr .lb .srk {
+  width: 350px;
+  height: 32px;
+  margin-left: 110px;
+  border: 1px solid #c9cacb;
+  margin-top: 6px;
+  font: 14px/24px "微软雅黑";
+  padding-left: 6px;
+}
+.ss-con .xgxx-nr .sub {
+  background: #c9cacb;
+  height: 24px;
+  width: 46px;
+  border: none;
+  color: #fff;
+  font: 12px/24px "微软雅黑";
+  margin: 12px 0 0 416px;
+}
+/* 个人中心-登陆注册页面 */
+.pos-re {
+  position: relative;
+}
+.pos-ab {
+  position: absolute;
+}
+.font {
+  color: #000;
+  font: 16px/30px "微软雅黑";
+}
+.container {
+  width: 700px;
+  margin: 0 auto;
+}
+.center {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+.grzx-logo {
+  background: url("../images/grzx-logo.png") center no-repeat;
+  width: 262px;
+  height:52px;
+}
+.tab-navs {
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+}
+.tab-navs > a {
+  margin: 0 10px;
+}
+.tab-navs > span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0 8px;
+  width: 35px;
+  height: 2px;
+  background: #999c9e;
+  -webkit-transition: left .15s ease-in;
+  transition: left .15s ease-in;
+}
+.tab-navs[active-index='1'] > span {
+  left: 55px;
+}
+.login-part,
+.sign-part {
+  margin-top: 20px;
+}
+.login-input {
+  color: #7c7c7c;
+  width: 96%;
+  margin: 6px 0;
+  font: 16px/30px "微软雅黑";
+  padding-left: 10px;
+}
+.login-btn {
+  margin: 10px auto;
+}
+.login-submit {
+  padding: 0px 50px;
+  background: #595757;
+  border: 0;
+  color: #fff;
+  font: 14px/30px "微软雅黑";
+  cursor: pointer;
+}
+.login-btn > span {
+  margin-top: 11px;
+  margin-left: 60px;
+}
+.login-btn > span > a {
+  color: #000000;
+  font: 14px "微软雅黑";
+  margin: 0 3px;
+}
+.qita-login {
+  margin-top: 50px;
+}
+.qita-login > p {
+  text-align: left;
+  margin: 0 auto;
+}
+.qita-login > p > a:nth-child(2) {
+  margin: 0 104px;
+}
+.login-qq {
+  background: url("../images/login-qq.png") center no-repeat;
+  width: 47px;
+  height: 47px;
+}
+.login-weibo {
+  background: url("../images/login-weibo.png") center no-repeat;
+  width: 47px;
+  height: 47px;
+}
+.login-wechat {
+  background: url("../images/login-wechat.png") center no-repeat;
+  width: 47px;
+  height: 47px;
+}
+.login-radio {
+  text-align: right;
+  font: 14px "微软雅黑";
+}
+.login-radio > input {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+.sign-submit {
+  width: 100%;
+  background: #595757;
+  border: 0;
+  color: #fff;
+  font: 14px/30px "微软雅黑";
+}
+/*hover*/
+.login-btn > span > a:hover {
+  color: #f60;
+}
+/* dialog */
+.dialog-bg.show {
+  opacity: .8;
+}
+.dialog.show {
+  z-index: 100;
+}
+.dialog-wrapper.show {
+  opacity: 1;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+}
+.dialog-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  opacity: .8;
+  z-index: 99;
+  -webkit-transition: opacity .2s ease-out;
+  transition: opacity .2s ease-out;
+}
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.dialog-wrapper {
+  background: #fff;
+  width: 300px;
+  height: 250px;
+  margin: 110px auto;
+  opacity: 0;
+  text-align: center;
+  transition: .3s ease-out;
+  -webkit-transition: .3s ease-out;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,.3);
+  transform: translate(0,20px);
+  -webkit-transform: translate(0,20px);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.dialog-wrapper > div {
+  position: absolute;
+  width: 100%;
+  transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+}
+.dialog-right {
+  transform: translate(100%,0);
+}
+.dialog-left {
+  transform: translate(-100%,0);
+}
+.dialog-container-title {
+  padding-top: 10px;
+  font-weight: 700;
+}
+.dialog-container > div {
+  margin-top: 15px;
+}
+.dialog-container > div > span {
+  width: 24%;
+  font: 15px "微软雅黑";
+  text-align: right;
+  margin-right: 8px;
+}
+.dialog-container > div > input {
+  width: 50%;
+  padding: 2px;
+}
+.dialog-container > p {
+  margin-top: 15px;
+}
+.dialog-bigo {
+  width: 100%;
+  font: 17px "微软雅黑";
+  padding-top: 40px;
+}
+.right-arrow {
+  width: 30px;
+  height: 30px;
+  background: url("../images/sprite-assorted.png") no-repeat;
+  background-position: 5px -84px;
+}
+.close-icon {
+  width: 30px;
+  height: 30px;
+  background: url("../images/sprite-assorted.png") no-repeat;
+  background-position: -4px -146px;
+}
+
+/* 日历 */
+
+.calendar_ {
+    width: 100%;
+    height: 361px;
+    display: block;
+    position: relative;
+    border-radius: 2px;
+    background:#fff;
+}
+
+.calendar-table th{
+    text-align:center;
+    font-size:16px;
+}
+
+.calendar_ td{
+    cursor: pointer;
+    font-size:14px;
+    border-radius: 47%;
+    font-weight: 900;
+}
+
+.calendar_ td:hover{
+    background: #ccc;
+}
+
+/**
+ * 设置日历顶部盒子
+ */
+.calendar_ .calendar-title-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align:center;
+    border-bottom: 1px solid #ddd;
+    background: #EEEFEF;
+}
+/**
+ * 设置上个月的按钮图标
+ */
+.calendar_ .prev-month {
+    float: left;
+    margin-left: 12px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b0aead;
+    border-radius: 100%;
+    cursor: pointer;
+    /*overflow: hidden;*/
+    margin-top: 12px;
+}
+
+.calendar_ .next-month:hover,
+.calendar_ .prev-month:hover{
+    /*border-color: #5ed1cc;*/
+    border-color: #F60;
+}
+.calendar_ .prev-month:hover .fa{
+    /*color: #5ed1cc;*/
+    color: #F60;
+}
+.calendar_ .next-month:hover .fa{
+    /*color: #5ed1cc;*/
+    color: #F60;
+}
+/*年月样式*/
+.calendar-title{
+    color: #555555;
+    font-size:16px;
+    font-weight:900;
+}
+/**
+ * 设置下个月的按钮图标
+ */
+.calendar_ .next-month {
+    float: right;
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b0aead;
+    border-radius: 100%;
+    cursor: pointer;
+    /*overflow: hidden;*/
+    margin-top: 12px;
+}
+/* 设置日历表格样式 */
+.calendar-table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align:center;
+}
+
+/* 表格行高 */
+.calendar-table tr{
+    height: 44px;
+    line-height: 44px;
+}
+/* 当前天 颜色特殊显示 */
+.currentDay {
+    color: #F60;
+    background: #ccc;
+}
+/* 本月 文字颜色 */
+.currentMonth {
+    color: #999;
+}
+/* 其他月颜色 */
+.otherMonth{
+    color: #ede;
+}
+.calendar_ .fa{
+    display: block;
+    color: #b0aead;
+    margin-top: 2px;
+}
+.calendar_ .fa-chevron-left{
+    margin-right: 2px;
+}
+.calendar_ .fa-chevron-right{
+    margin-left: 2px;
+}
+
+/* 预约 */
+.modal {
+    overflow: hidden;
+}
+
+.srk-radio {
+    float: left;
+    margin-left: 112px;
+    margin-top: 11px;
+}
+.srk-radio > input {
+    margin-left: 10px;
+}
+.srkk {
+    margin-top: 11px;
+    width: 120px;
+    border: 1px solid #c9cacb;
+}
+
+.img-view {
+      float: left;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #a0a0a1;
+      overflow: hidden;
+}
+
+.text-view {
+      padding: 42px;
+    display: inline-block;
+}
+
+.head-sub {
+      background: #c9cacb;
+    height: 24px;
+    width: 46px;
+    border: none;
+    color: #fff;
+    font: 12px/24px "微软雅黑";
+        margin: 50px 0 0 100px;
+}
+
+.red {
+	    font-style: normal;
+	    color: red;
+	    position: absolute;
+	    left: -8px;
+}
+
+.ss-con .xgxx-nr .lb span.tips {
+	    color: red;
+    margin-left: 10px;
+    display:none
+}
+
+.delect-btn {
+    float: right;
+    width: 52px;
+    border: 0;
+    margin-top: 28px;
+    background: #595757;
+    color: #fff;
+  }
+
+  input[name="delect"] {
+    float: left;
+    margin-top: 50px;
+    margin-right: 10px;
+  }
+
+  .logout {
+    color: #898989;
+    font: 14px/26px "微软雅黑";
+}

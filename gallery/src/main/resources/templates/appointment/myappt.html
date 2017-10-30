@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head th:include="module :: htmlhead" th:with="title='个人中心-我的预约'"></head>
+	<body style="overflow: auto;">
+	<div id="app">
+		<!--头部大图-->
+		<div th:replace="module :: head_img"></div>
+		<!--主体开始-->
+		<div id="content" class="ss-con">
+			<!--面包屑开始-->
+			<div class="curmb">
+				<a href="#">首页</a><span>/</span>
+				<a href="#">个人中心</a><span>/</span>我的预约
+			</div>
+			<!--面包屑结束-->
+			<div class="cont-sc clearfix">
+				<!--左侧菜单-->
+				<div th:replace="module :: navbar (wdyy)"></div>
+				<!--右侧开始-->
+				<div class="cont-r">
+					<div th:replace="module :: person_info"></div>
+					<!--预约开始-->
+
+					<!--预约说明开始-->
+					<div class="yysm com-1">
+						<div class="tit">预约说明</div>
+						<p>
+							1、首次预约请先注册为广东美术馆网站会员并按照提示登录预约；
+							<br/> 2、已注册为广东美术馆网站会员的用户请先登录并按要求预约；
+							<br/> 3、预约采取实名制，需填写预约人的姓名、联系方式、有效证件号码等信息；
+							<br/> 4、网上每日开放限额2000张预约票，每人每日预约免费票不得超过5张；
+							<br/> 5、预约成功后页面会有提示，预约者凭有效证件直接到广东美术馆领票处预约窗口领取免费参观票；
+							<br/> 6、预约票当日有效，过期作废。
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<td>序号 </td>
+									<td>预约参观日期 </td>
+									<td>预约状态 </td>
+									<td>预约 </td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="(item, index) in list">
+									<td>{{ index + 1 }}</td>
+									<td>{{ item.apptDate }}</td>
+									<td v-if="item.status == '开馆'">已经预约{{ item.ticketNum }}张，可预约{{ 2000 - item.ticketNum }}</td>
+									<td v-else="">闭馆</td>
+									<td v-if="item.status == '开馆'">
+										<a class="appt-add" v-on:click="open(item.apptDate, item.dateStr)" v-bind:apptDate="item.apptDate" v-bind:dateStr="item.dateStr" href="javascript:void(0);">预约</a>
+									</td>
+									<td v-else="">不能预约</td>
+								</tr>
+								<!-- <tr th:each="item, obj: ${list}">
+								  <td th:text="${obj.index+1}"></td>
+							      <td th:text="${item.apptDate}"></td>
+							      <td th:if="${item.status} == '开馆'" th:text="'已经预约'+${item.ticketNum}+'张，可预约'+${2000 - item.ticketNum}"></td>
+							      <td th:if="${item.status} == '闭馆'" th:text="闭馆"></td>
+							      
+							      <td>
+							      	<span th:if="${item.status} == '闭馆'">不能预约</span>
+									<a class="appt-add" th:attr="apptDate=${item.apptDate},dateStr=${item.dateStr}"  href="javascript:void(0);" th:if="${item.status} == '开馆'">预约</a>
+								  </td>
+							    </tr> -->
+							</tbody>
+						</table>
+					</div>
+					<!--预约说明开始-->
+					<!--我的预约记录开始-->
+					<div class="yysm" style="margin: 0 0 16px 0;">
+						<div class="wdyyjl">我的预约记录</div>
+
+						<table>
+							<thead>
+								<tr>
+									<td>序号 </td>
+									<td>预约参观日期 </td>
+									<td>预约票数 </td>
+									<td>操作 </td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-if="myAppts.length == 0">
+									<td colspan="4">没有预约记录</td>
+								</tr>
+								
+								<tr v-else="" v-for="(item, index) in myAppts">
+								  <td>{{ index + 1 }}</td>
+								  <td>{{ item.apptDate }}</td>
+								  <td>预约票数{{ item.ticketNum }}张</td>
+							      <td>
+									<a v-on:click="deleteAppt(item.docId)" href="javascript:void(0);">取消预约</a>
+								  </td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--我的预约记录开始-->
+					<!--预约结束-->
+				</div>
+			</div>
+			<!--右侧结束-->
+
+		</div>
+		<!--主体结束-->
+		
+		<!-- 右部菜单 -->
+		<div th:replace="module :: right_menu"></div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">门票预约</h4>
+		      </div>
+		      <div class="modal-body">
+					<form name="appt" id="apptForm">
+						<div class="form-group">
+							<label class="control-label">真实姓名</label> 
+							<input type="text" class="form-control" id="realname" v-model="realname" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">身份证号码</label> 
+							<input type="text" class="form-control" id="IDCardNum" v-model="IDCardNum" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">手机号</label> 
+							<input type="text" class="form-control" id="mobile" v-model="mobile" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">预约票数</label> 
+							<select type="text" class="form-control" id="ticketNum" v-model="ticketNum" >
+							  <option value ="1">1</option>
+							  <option value ="2">2</option>
+							  <option value="3">3</option>
+							  <option value="4">4</option>
+							  <option value="5">5</option>
+							</select>
+						</div>
+					</form>
+				</div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button id="appt" v-on:click="addAppt" type="button" class="btn btn-primary">预约</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<!--底部开始-->
+		<div th:replace="module :: footer"></div>
+	<script src="https://unpkg.com/vue@2.3.4/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+	<script>
+	
+	var demo = new Vue({
+           el:'#app',
+           data: {
+               list: [],
+               myAppts: [],
+               realname: '',
+               IDCardNum: '',
+               mobile: '',
+               ticketNum: '',
+               getAPIUrl: 'appt/getAppts',    //存数据接口 
+               getMyApptsUrl: 'appt/getMyAppts'
+           },
+           created: function(){
+                             //定义方法
+           },
+           mounted: function(){
+           	this.getAppts();
+           	this.getMyAppts()
+           },
+           methods: {
+           	getAppts: function(){
+                   axios({           //调用接口
+                       method:'GET',
+                       url:this.getAPIUrl  //this指data
+                   }).then(function(response){  //接口返回数据
+                	   demo.list = response.data.data;                        
+                   })
+               },
+               getMyAppts: function() {
+                   axios({           //调用接口
+                       method:'GET',
+                       url:this.getMyApptsUrl  //this指data
+                   }).then(function(response){  //接口返回数据
+                	   demo.myAppts = response.data.data;                        
+                   })
+               },
+               open: function(apptDate, dateStr){
+   				$('#myModal').modal('show');
+   				$('#myModal').attr("apptDate", apptDate);
+   				$('#myModal').attr("dateStr", dateStr);
+               },
+               addAppt: function(){
+               	var that = this;      
+               	var apptDate = $("#myModal").attr("apptdate");
+               	var dateStr = $("#myModal").attr("datestr");
+                   axios({           //调用接口
+                       method:'POST',
+                       url: 'appt/add',  //this指data
+                       params: {
+   						realname: this.realname,
+   						IDCardNum: this.IDCardNum,
+   						mobile: this.mobile,
+   						ticketNum: this.ticketNum,
+   						apptDate: apptDate,
+   						dateStr: dateStr
+   					}
+                   }).then(function(response){  //接口返回数据
+                   	if (response.data.result) {
+						alert("预约成功");
+						$('#myModal').modal('hide')
+						that.getAppts();
+						that.getMyAppts();
+					} else {
+						alert(response.data.msg);
+					}                       
+                   })
+               },
+               deleteAppt: function(docId){
+               	var that = this;      
+                   axios({           //调用接口
+                       method:'POST',
+                       url: 'appt/delete',  //this指data
+                       params: {docId: docId}
+                   }).then(function(response){  //接口返回数据
+                   	if (response.data.result) {
+						alert("取消预约成功");
+						that.getAppts();
+						that.getMyAppts();
+					} else {
+						alert(response.data.msg);
+					}                       
+                   })
+               } 
+           }
+       })
+	</script>
+	</body>
+
+</html>
